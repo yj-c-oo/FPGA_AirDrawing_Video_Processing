@@ -1,0 +1,131 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Thu Jul 16 10:29:27 2026
+| Host         : DESKTOP-7CFQ9ND running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file top_airDrawing_control_sets_placed.rpt
+| Design       : top_airDrawing
+| Device       : xc7a35t
+-------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    53 |
+|    Minimum number of control sets                        |    53 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   204 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    53 |
+| >= 0 to < 4        |     2 |
+| >= 4 to < 6        |     6 |
+| >= 6 to < 8        |     4 |
+| >= 8 to < 10       |    14 |
+| >= 10 to < 12      |     5 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     2 |
+| >= 16              |    20 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              18 |           12 |
+| No           | No                    | Yes                    |             184 |           66 |
+| No           | Yes                   | No                     |               2 |            2 |
+| Yes          | No                    | No                     |             158 |           46 |
+| Yes          | No                    | Yes                    |             466 |          184 |
+| Yes          | Yes                   | No                     |              88 |           30 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------+---------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------+------------------+----------------+--------------+
+|   Clock Signal  |                                                    Enable Signal                                                    |                              Set/Reset Signal                              | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------+---------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG  | U_CLOCK_GEN/scl_r6_out                                                                                              | reset_IBUF                                                                 |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG  |                                                                                                                     | U_VGA_DECODER/U_HV_COUNTER/o_hcount_reg[7]_0                               |                2 |              2 |         1.00 |
+|  clk_IBUF_BUFG  |                                                                                                                     |                                                                            |                4 |              4 |         1.00 |
+|  clk_IBUF_BUFG  | U_UART_PACKET_DECODER/U_UART_RX/b_tick_cnt_next                                                                     | reset_IBUF                                                                 |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG  | U_UART_PACKET_SENDER/U_UART_TX/b_tick_cnt_reg[3]_i_1__0_n_0                                                         | reset_IBUF                                                                 |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG  | U_UART_PACKET_DECODER/U_UART_RX/E[0]                                                                                | reset_IBUF                                                                 |                2 |              5 |         2.50 |
+|  clk_IBUF_BUFG  | U_UART_PACKET_DECODER/rx_packet_valid                                                                               | reset_IBUF                                                                 |                3 |              5 |         1.67 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_brush_draw_engine/U_CIRCULAR_BRUSH_RENDERER/texture_on_reg_reg_0[0]     | reset_IBUF                                                                 |                4 |              5 |         1.25 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_brush_draw_engine/U_BRESENHAM_INTERPOLATOR/FSM_onehot_state_reg[1]_1[0] | reset_IBUF                                                                 |                4 |              6 |         1.50 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_brush_draw_engine/U_CIRCULAR_BRUSH_RENDERER/offset_y[5]_i_1_n_0         | reset_IBUF                                                                 |                2 |              6 |         3.00 |
+|  clk_IBUF_BUFG  | U_UART_PACKET_DECODER/U_UART_RX/FSM_sequential_state_reg[1]_0[0]                                                    | reset_IBUF                                                                 |                2 |              7 |         3.50 |
+|  clk_IBUF_BUFG  | U_TOP_OV7670/U_SCCB_CTRL/U_I2C_MASTER/U_I2C_MASTER/FSM_onehot_state_reg[3][0]                                       | reset_IBUF                                                                 |                3 |              7 |         2.33 |
+|  clk_IBUF_BUFG  | U_TOP_OV7670/U_SCCB_CTRL/U_I2C_MASTER/U_I2C_MASTER/done_reg_0[0]                                                    |                                                                            |                4 |              8 |         2.00 |
+|  pclk_IBUF_BUFG | U_TOP_OV7670/U_MEMCONTROLLER/pixeldata[15]                                                                          | reset_IBUF                                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG  | U_TOP_OV7670/U_SCCB_CTRL/U_I2C_MASTER/U_I2C_MASTER/tx_shift_reg[7]_i_1_n_0                                          | reset_IBUF                                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG  | U_UART_PACKET_DECODER/U_UART_RX/data_buf_next                                                                       | reset_IBUF                                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG  | U_UART_PACKET_SENDER/U_UART_TX/data_buf_reg[7]_i_1__0_n_0                                                           | reset_IBUF                                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG  | U_PEN_CONFIG_CONTROLLER/clear_cnt[7]_i_1_n_0                                                                        | reset_IBUF                                                                 |                3 |              8 |         2.67 |
+|  pclk_IBUF_BUFG | U_TOP_OV7670/U_MEMCONTROLLER/pixeldata[7]                                                                           | reset_IBUF                                                                 |                2 |              8 |         4.00 |
+|  pclk_IBUF_BUFG | U_TOP_OV7670/U_MEMCONTROLLER/we_reg_0                                                                               | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_bbox_center_accum/x[8]_i_1_n_0 |                7 |              9 |         1.29 |
+|  clk_IBUF_BUFG  | U_UART_PACKET_DECODER/U_UART_RX/FSM_sequential_state_reg[0]_0[0]                                                    | reset_IBUF                                                                 |                3 |              9 |         3.00 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_bbox_center_accum/minx[8]_i_1_n_0                                       | vsync_IBUF                                                                 |                3 |              9 |         3.00 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_bbox_center_accum/maxx[8]_i_1_n_0                                       | vsync_IBUF                                                                 |                2 |              9 |         4.50 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_bbox_center_accum/maxy[8]_i_1_n_0                                       | vsync_IBUF                                                                 |                2 |              9 |         4.50 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_bbox_center_accum/x                                                     | vsync_IBUF                                                                 |                3 |              9 |         3.00 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_bbox_center_accum/miny[8]_i_1_n_0                                       | vsync_IBUF                                                                 |                3 |              9 |         3.00 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_brush_draw_engine/U_BRESENHAM_INTERPOLATOR/y_cur[9]_i_1_n_0             | reset_IBUF                                                                 |                3 |             10 |         3.33 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_brush_draw_engine/U_BRESENHAM_INTERPOLATOR/err[9]_i_1_n_0               | reset_IBUF                                                                 |                7 |             10 |         1.43 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_brush_draw_engine/U_BRESENHAM_INTERPOLATOR/x_cur[9]_i_1_n_0             | reset_IBUF                                                                 |                4 |             10 |         2.50 |
+|  clk_IBUF_BUFG  | U_VGA_DECODER/U_HV_COUNTER/o_vcount[9]_i_1_n_0                                                                      | reset_IBUF                                                                 |                3 |             10 |         3.33 |
+|  clk_IBUF_BUFG  | U_UART_PACKET_DECODER/U_UART_RX/FSM_sequential_state_reg[1]                                                         | reset_IBUF                                                                 |                6 |             11 |         1.83 |
+|  pclk_IBUF_BUFG |                                                                                                                     |                                                                            |                8 |             14 |         1.75 |
+|  pclk_IBUF_BUFG |                                                                                                                     | reset_IBUF                                                                 |                9 |             14 |         1.56 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_canvas_buffer/cnt[0]_i_1__0_n_0                                         | U_PEN_CONFIG_CONTROLLER/canvas_clear                                       |                5 |             17 |         3.40 |
+|  pclk_IBUF_BUFG | U_TOP_OV7670/U_MEMCONTROLLER/cnt                                                                                    | vsync_IBUF                                                                 |                5 |             17 |         3.40 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_brush_draw_engine/U_BRESENHAM_INTERPOLATOR/line_done_reg_0[0]           | reset_IBUF                                                                 |                7 |             18 |         2.57 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_coord_filter/bx[3][8]_i_1_n_0                                           |                                                                            |                4 |             18 |         4.50 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_coord_filter/bx[0][8]_i_1_n_0                                           |                                                                            |                4 |             18 |         4.50 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_coord_filter/bx[1][8]_i_1_n_0                                           |                                                                            |                6 |             18 |         3.00 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_coord_filter/bx[2][8]_i_1_n_0                                           |                                                                            |                5 |             18 |         3.60 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_coord_filter/bx[4][8]_i_1_n_0                                           |                                                                            |                7 |             18 |         2.57 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_bbox_center_accum/cx[8]_i_1_n_0                                         |                                                                            |                6 |             18 |         3.00 |
+|  clk_IBUF_BUFG  | U_TOP_OV7670/U_SCCB_CTRL/reg_idx_rep_rep[6]_i_1_n_0                                                                 | reset_IBUF                                                                 |                7 |             21 |         3.00 |
+|  clk_IBUF_BUFG  | U_CLOCK_GEN/tick_25                                                                                                 | reset_IBUF                                                                 |               12 |             23 |         1.92 |
+|  clk_IBUF_BUFG  | U_UART_PACKET_SENDER/x_packet_latched_0                                                                             | reset_IBUF                                                                 |               13 |             28 |         2.15 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_coord_filter/frame_done                                                 | reset_IBUF                                                                 |               15 |             30 |         2.00 |
+|  clk_IBUF_BUFG  | U_TOP_OV7670/U_SCCB_CTRL/U_I2C_MASTER/U_I2C_MASTER/E[0]                                                             | reset_IBUF                                                                 |                7 |             32 |         4.57 |
+|  pclk_IBUF_BUFG | U_TOP_OV7670/U_MEMCONTROLLER/waddr[0]_i_1_n_0                                                                       | reset_IBUF                                                                 |               10 |             32 |         3.20 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_brush_draw_engine/U_BRESENHAM_INTERPOLATOR/FSM_onehot_state_reg[1]_0[0] | reset_IBUF                                                                 |               17 |             37 |         2.18 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_brush_draw_engine/U_STROKE_CONTROLLER/E[0]                              | reset_IBUF                                                                 |               15 |             40 |         2.67 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_bbox_center_accum/E[0]                                                  |                                                                            |               10 |             42 |         4.20 |
+|  pclk_IBUF_BUFG | U_TOP_BUFFER/U_TOP_CANVAS/U_CANVAS_BUFFER/U_brush_draw_engine/U_STROKE_CONTROLLER/active_end_x                      | reset_IBUF                                                                 |               18 |             47 |         2.61 |
+|  clk_IBUF_BUFG  |                                                                                                                     | reset_IBUF                                                                 |               57 |            170 |         2.98 |
++-----------------+---------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------+------------------+----------------+--------------+
+
+
