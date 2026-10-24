@@ -7,6 +7,11 @@
 set_property -dict { PACKAGE_PIN W5   IOSTANDARD LVCMOS33 } [get_ports clk]
 create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports clk]
 
+## OV7670 camera pixel clock (PCLK). Declared at 25 MHz as a conservative bound.
+create_clock -add -name cam_pclk_pin -period 40.00 [get_ports pclk]
+## Camera (pclk) and system (clk) domains are asynchronous; the dual-port framebuffer separates them.
+set_clock_groups -asynchronous -group [get_clocks -include_generated_clocks sys_clk_pin] -group [get_clocks cam_pclk_pin]
+
 
 ## Switches
 ## 시스템 리셋 = SW15 (왼쪽 끝). 나머지 스위치는 전부 미사용 (펜 설정은 UART GUI + 버튼).
