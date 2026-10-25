@@ -116,7 +116,7 @@ VGA는 blanking을 포함해 한 프레임이 800×521이므로 주사율은 `25
   <img src="docs/images/06-sccb-fsm.png" width="440" alt="SCCB FSM">
 </p>
 
-`ov7670_sccb_ctrl`은 `ov7670_pkg.sv`의 레지스터 설정을 SCCB로 순차 전송하는 상태기계입니다.
+`ov7670_sccb_ctrl`은 `ov7670_pkg.sv`의 레지스터 설정을 SCCB로 순차 전송하는 FSM입니다.
 XCLK 안정까지 약 30 ms 대기 후 COM7 software reset부터 시작하고, 레지스터 사이에 약 1 ms 간격을 둡니다.
 내부에서 `i2c_master`를 구동해 `scl` · `sda` 파형을 만듭니다.
 
